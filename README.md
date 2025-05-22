@@ -19,41 +19,33 @@ recipes-monorepo/
 
 ### Install all dependencies
 
-```bash
 yarn install
-
-
-```bash
-yarn start:front
-```
-
-> URL: [http://localhost:3000](http://localhost:3000)
-
 
 ### Start backend (NestJS)
 
-```bash
 yarn start:back
 
 > URL: [http://localhost:8080](http://localhost:8080)
 
+### Start frontend (Next.js)
+
+yarn start:front
+
+> URL: [http://localhost:3000](http://localhost:3000)
+
 ### Start both in parallel
 
-```bash
 yarn start
 
 ## 🌐 Environment Variables
 
 ### backend/.env
 
-```env
 PORT=8080
 MEAL_API_URL=https://www.themealdb.com/api/json/v1/1
-```
 
 ### frontend/.env.local
 
-```env
 NEXT_PUBLIC_API_URL=http://localhost:8080
 PORT=3000
 
