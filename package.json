@@ -1,0 +1,16 @@
+{
+    "name": "recipes-monorepo",
+    "private": true,
+    "workspaces": [
+        "frontend",
+        "backend"
+    ],
+    "scripts": {
+        "start:front": "yarn workspace frontend dev",
+        "start:back": "yarn workspace backend start:dev",
+        "start": "concurrently \"yarn start:front\" \"yarn start:back\""
+    },
+    "devDependencies": {
+        "concurrently": "^8.0.0"
+    }
+}
