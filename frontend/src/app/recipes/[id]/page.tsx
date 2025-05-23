@@ -85,7 +85,7 @@ export default function RecipeInfoPage() {
                 <li key={i}>
                   <Link
                     href={`/recipes?ingredient=${encodeURIComponent(
-                      item.split(" ").slice(-1)[0]
+                      item ?  item.split(" ").slice(-1)[0] : ''
                     )}`}
                     className="text-[#5e4035] font-medium hover:underline"
                   >
