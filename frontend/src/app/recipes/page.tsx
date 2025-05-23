@@ -1,6 +1,5 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { RecipeCard } from "@/components/RecipeCard";
 import { apiGet } from "@/lib/api";
@@ -13,7 +12,7 @@ type Recipe = {
   strInstructions: string;
 };
 
-export default function RecipeListPage() {
+ function RecipeListPage() {
   const [meals, setMeals] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -53,6 +52,8 @@ export default function RecipeListPage() {
   };
 
   return (
+
+
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6">{getTitle()}</h1>
 
@@ -77,5 +78,13 @@ export default function RecipeListPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading recipes...</div>}>
+      <RecipeListPage />
+    </Suspense>
   );
 }
